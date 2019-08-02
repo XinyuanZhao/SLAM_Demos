@@ -1,0 +1,21 @@
+<launch>
+    <arg name="kinect" default="false" />
+
+    <group unless="$(arg kinect)">
+        <include file="$(find p3dx_slam)/launch/slam_gmapping.launch">
+            <arg name="range_sensor" value="laser" />
+            <arg name="maxUrange" value="16.0" />
+        </include>
+        <node pkg="rviz" type="rviz" name="rviz"
+            args="-d $(find p3dx_slam)/config/laser_gmapping.rviz"/>
+    </group>
+
+    <group if="$(arg kinect)">
+        <include file="$(find p3dx_slam)/launch/slam_gmapping.launch">
+            <arg name="range_sensor" value="kinect" />
+            <arg name="maxUrange" value="8.0" />
+        </include>
+        <node pkg="rviz" type="rviz" name="rviz"
+            args="-d $(find p3dx_slam)/config/kinect_gmapping.rviz"/>
+    </group>
+</launch>
