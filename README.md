@@ -4,15 +4,31 @@ This project, built on ROS, provides some basic demos of SLAM. The mobile robot 
 
 ## Testing Platform
 
-- Ubuntu: 16.04
-- ROS: kinetic
-- Gazebo: 8.6
+The code was tested recently with the following configurations and worked well. I believe it should still work with the previous configurations (see below) since only trivial changes were made this time (but perhaps no one will follow that outdated configuration now).
 
-I believe Gazebo 7.0, the default version within ROS kinetic, should also be fine to run this project because it doesn't depend on any version-specific libraries from Gazebo.
+- Ubuntu: 20.04
+- ROS: noetic
+- Gazebo: 11.11
+
+> Last Test
+>
+> - Ubuntu: 16.04
+> - ROS: kinetic
+> - Gazebo: 8.6
+>
+> I believe Gazebo 7.0, the default version within ROS kinetic, should also be fine to run this project because it doesn't depend on any version-specific libraries from Gazebo.
+
+Reminder: If someone finds the world file cannot be loaded successfully, please check if you have downloaded and placed correctly the model library for Gazebo. If not, please download it by
+
+```bash
+git clone git@github.com:osrf/gazebo_models.git
+```
+
+and place all of them at `~/.gazebo/models`.
 
 ## SLAM by Lidar
 
-The following command will open Gazebo and load the robot model in Gazebo.  The launching option `kinetic:=false` can be omitted since it is the default value.
+The following command will open Gazebo and load the robot model in Gazebo.  The launching option `kinect:=false` can be omitted since it is the default value.
 
 ```bash
 roslaunch p3dx_gazebo p3dx_gazebo.launch kinect:=false

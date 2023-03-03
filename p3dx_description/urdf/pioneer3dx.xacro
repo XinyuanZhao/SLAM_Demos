@@ -28,6 +28,12 @@ work original in ucs-ros-pkg.
   <!-- import the pioneer 3dx's wheels -->
   <xacro:include filename="$(find p3dx_description)/urdf/pioneer3dx_wheel.xacro" />
 
+	<!-- <link name="dummy" />
+	<joint name="dummy_joint" type="fixed">
+		<parent link="dummy"/>
+		<child link="base_link"/>
+	</joint> -->
+
   <!-- chassis -->
 	<link name="base_link">
 		<inertial>
